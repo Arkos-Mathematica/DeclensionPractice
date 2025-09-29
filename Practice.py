@@ -31,7 +31,8 @@ def part_of_speech(grammar):
         raise NameError(f"Could not identify grammar {grammar}")
 
 def add_word(nom, nouns, adjectives, verbs):
-    if len(nouns) > 1 and nom in nouns.columns:
+    # TODO clean this line up
+    if (len(nouns) > 1 and nom in nouns.columns) or (len(adjectives) > 1 and nom in adjectives.columns) or (len(verbs) > 1 and nom in verbs.columns):
         print("Word already in dictionary :)")
     else:
         table = get_table(nom)
@@ -112,7 +113,7 @@ def menu_select(nouns, adjectives, verbs):
 '''))
     match choice:
         case 1:
-            word = input("what word would you like to add?")
+            word = input("what word would you like to add? ")
             return tuple([True]) + add_word(word.lower(), nouns, adjectives, verbs) 
         case 2: 
             view_words(nouns, adjectives, verbs)
