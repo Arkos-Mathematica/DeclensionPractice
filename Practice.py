@@ -52,7 +52,7 @@ def add_word(nom, nouns, adjectives, verbs):
 
 def view_words(nouns, adjectives, verbs):
     print("viewing words")
-    print(f" Nouns: {list(nouns.columns)[3:]}\n Adjectives: {list(adjectives.columns)[3:]}\n Verbs: {list(verbs.columns)[3:]}")
+    print(f" Nouns: {list(nouns.columns)[4:]}\n Adjectives: {list(adjectives.columns)[4:]}\n Verbs: {list(verbs.columns)[4:]}")
 
 def get_gender(noun, nouns):
     ands = lambda x, y: x and y
@@ -71,8 +71,8 @@ def practice(declension, nouns, adjectives):
     run = True
     ands = lambda x, y: x and y
     while run:
-        noun = rand.choice(list(nouns.columns)[3:])
-        adjective = rand.choice(list(adjectives.columns)[3:])
+        noun = rand.choice(list(nouns.columns)[4:])
+        adjective = rand.choice(list(adjectives.columns)[4:])
         plurality = rand.choice(["Plural", "Singular"])
         if plurality == "Plural":
             gender = "Plural"
