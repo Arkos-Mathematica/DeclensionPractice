@@ -1,0 +1,33 @@
+,Unnamed: 0,case,gender,красный,блатной,целевой
+0,0,Accusative animate,Feminine,кра'сную,блатну'ю,целеву'ю
+1,1,Accusative animate,Masculine,кра'сного,блатно'го,целево'го
+2,2,Accusative animate,Neutral,кра'сное,блатно'е,целево'е
+3,3,Accusative animate,Plural,кра'сных,блатны'х,целевы'х
+4,4,Accusative inanimate,Feminine,кра'сную,блатну'ю,целеву'ю
+5,5,Accusative inanimate,Masculine,кра'сный,блатно'й,целево'й
+6,6,Accusative inanimate,Neutral,кра'сное,блатно'е,целево'е
+7,7,Accusative inanimate,Plural,кра'сные,блатны'е,целевы'е
+8,8,Dative,Feminine,кра'сной,блатно'й,целево'й
+9,9,Dative,Masculine,кра'сному,блатно'му,целево'му
+10,10,Dative,Neutral,кра'сному,блатно'му,целево'му
+11,11,Dative,Plural,кра'сным,блатны'м,целевы'м
+12,12,Genitive,Feminine,кра'сной,блатно'й,целево'й
+13,13,Genitive,Masculine,кра'сного,блатно'го,целево'го
+14,14,Genitive,Neutral,кра'сного,блатно'го,целево'го
+15,15,Genitive,Plural,кра'сных,блатны'х,целевы'х
+16,16,Instrumental,Feminine,"кра'сной, кра'сною","блатно'й, блатно'ю","целево'й, целево'ю"
+17,17,Instrumental,Masculine,кра'сным,блатны'м,целевы'м
+18,18,Instrumental,Neutral,кра'сным,блатны'м,целевы'м
+19,19,Instrumental,Plural,кра'сными,блатны'ми,целевы'ми
+20,20,Locative,Feminine,кра'сной,блатно'й,целево'й
+21,21,Locative,Masculine,кра'сном,блатно'м,целево'м
+22,22,Locative,Neutral,кра'сном,блатно'м,целево'м
+23,23,Locative,Plural,кра'сных,блатны'х,целевы'х
+24,24,Nominative,Feminine,кра'сная,блатна'я,целева'я
+25,25,Nominative,Masculine,кра'сный,блатно'й,целево'й
+26,26,Nominative,Neutral,кра'сное,блатно'е,целево'е
+27,27,Nominative,Plural,кра'сные,блатны'е,целевы'е
+28,28,Short form,Feminine,красна',*блатна',*целева'
+29,29,Short form,Masculine,кра'сен,,
+30,30,Short form,Neutral,кра'сно//красно',*блатно',*целево'
+31,31,Short form,Plural,кра'сны//красны',блатны',целевы'
