@@ -66,28 +66,32 @@ def get_gender(noun, nouns):
     elif "ж" in gen:
         return "Feminine"
 
+def practice_round(declension, nouns, adjectives, ands):
+    noun = rand.choice(list(nouns.columns)[4:])
+    adjective = rand.choice(list(adjectives.columns)[4:])
+    plurality = rand.choice(["Plural", "Singular"])
+    if plurality == "Plural":
+        gender = "Plural"
+    else:
+        gender = get_gender(noun, nouns)
+    
+    n_series = nouns[(nouns["case"] == declension).combine(nouns["plurality"]== plurality, ands)][noun]
+    n_index = int(n_series.index[0])
+    a_series = adjectives[(adjectives["case"] == declension).combine(adjectives["gender"]== gender, ands)][adjective]
+    a_index = int(a_series.index[0])
+    return (noun, adjective, plurality, n_series, n_index, a_series, a_index)
+
 def practice(declension, nouns, adjectives):
     print(f"practicing {declension}")
     run = True
     ands = lambda x, y: x and y
     while run:
-        noun = rand.choice(list(nouns.columns)[4:])
-        adjective = rand.choice(list(adjectives.columns)[4:])
-        plurality = rand.choice(["Plural", "Singular"])
-        if plurality == "Plural":
-            gender = "Plural"
-        else:
-            gender = get_gender(noun, nouns)
+        noun, adjective, plurality, n_series, n_index, a_series, a_index = practice_round(declension, nouns, adjectives, ands)
         input(f" Noun: {noun}\n Adjective: {adjective}\n Plurality: {plurality}\n Please decline: ")
-        n_series = nouns[(nouns["case"] == declension).combine(nouns["plurality"]== plurality, ands)][noun]
-        n_index = int(n_series.index[0])
-        a_series = adjectives[(adjectives["case"] == declension).combine(adjectives["gender"]== gender, ands)][adjective]
-        a_index = int(a_series.index[0])
         print(f"Correct declension: {n_series[n_index]} {a_series[a_index]}")
         run = (input("Enter 'да' to continue: ")=="да")
 
-def upload(nouns, adjectives, verbs):
-    file = input("Enter file path: ")
+def upload(file, nouns, adjectives, verbs):
     with open(file, "r", encoding="utf-8") as word_doc:
         for word in word_doc:
             nouns, adjectives, verbs = add_word(word.strip(), nouns, adjectives, verbs)
@@ -95,9 +99,9 @@ def upload(nouns, adjectives, verbs):
 
 def save(nouns, adjectives, verbs):
     print("saving...")
-    nouns.to_csv("Nouns.csv")
-    adjectives.to_csv("Adjectives.csv")
-    verbs.to_csv("Verbs.csv")
+    nouns.iloc[:, ~nouns.columns.str.contains("0.")].to_csv("Nouns.csv")
+    adjectives.iloc[:, ~adjectives.columns.str.contains("0.")].to_csv("Adjectives.csv")
+    verbs.iloc[:, ~verbs.columns.str.contains("0.")].to_csv("Verbs.csv")
     print("saved!")
 
 def menu_select(nouns, adjectives, verbs):
@@ -131,13 +135,13 @@ def menu_select(nouns, adjectives, verbs):
             save(nouns, adjectives, verbs)
             return (True, nouns, adjectives, verbs)
         case 7:
-            return tuple([True]) + upload(nouns, adjectives, verbs)
+            file = input("Enter file path: ")
+            return tuple([True]) + upload(file, nouns, adjectives, verbs)
         case 8:
             return (False, nouns, adjectives, verbs)
 
 def main():
     # TODO
-    # add in ability to add study list
     # check if correct
     nouns = pd.read_csv("Nouns.csv")
     adjectives = pd.read_csv("Adjectives.csv")

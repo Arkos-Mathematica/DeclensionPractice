@@ -1,18 +1,18 @@
-,Unnamed: 0,case,plurality,кот,бокал,кубок,самогон
-0,0.0,Accusative animate,Plural,кото'в,,,
-1,1.0,Accusative animate,Singular,кота',,,
-2,,Accusative inanimate,Plural,,бока'лы,ку'бки,самого'ны
-3,,Accusative inanimate,Singular,,бока'л,ку'бок,самого'н
-4,2.0,Dative,Plural,кота'м,бока'лам,ку'бкам,самого'нам
-5,3.0,Dative,Singular,коту',бока'лу,ку'бку,самого'ну
-6,4.0,Genitive,Plural,кото'в,бока'лов,ку'бков,самого'нов
-7,5.0,Genitive,Singular,кота',бока'ла,ку'бка,самого'на
-8,,Genitive 2,Plural,,,,
-9,,Genitive 2,Singular,,,,самого'ну
-10,6.0,Grammar,Gender,мо,м,м,м
-11,7.0,Instrumental,Plural,кота'ми,бока'лами,ку'бками,самого'нами
-12,8.0,Instrumental,Singular,кото'м,бока'лом,ку'бком,самого'ном
-13,9.0,Locative,Plural,кота'х,бока'лах,ку'бках,самого'нах
-14,10.0,Locative,Singular,коте',бока'ле,ку'бке,самого'не
-15,11.0,Nominative,Plural,коты',бока'лы,ку'бки,самого'ны
-16,12.0,Nominative,Singular,ко'т,бока'л,ку'бок,самого'н
+,Unnamed: 0,case,plurality,кот,бокал,кубок,самогон,шлем,утка
+0,0.0,Accusative animate,Plural,кото'в,,,,,у'ток
+1,1.0,Accusative animate,Singular,кота',,,,,у'тку
+2,,Accusative inanimate,Plural,,бока'лы,ку'бки,самого'ны,шле'мы,
+3,,Accusative inanimate,Singular,,бока'л,ку'бок,самого'н,шле'м,
+4,2.0,Dative,Plural,кота'м,бока'лам,ку'бкам,самого'нам,шле'мам,у'ткам
+5,3.0,Dative,Singular,коту',бока'лу,ку'бку,самого'ну,шле'му,у'тке
+6,4.0,Genitive,Plural,кото'в,бока'лов,ку'бков,самого'нов,шле'мов,у'ток
+7,5.0,Genitive,Singular,кота',бока'ла,ку'бка,самого'на,шле'ма,у'тки
+8,,Genitive 2,Plural,,,,,,
+9,,Genitive 2,Singular,,,,самого'ну,,
+10,6.0,Grammar,Gender,мо,м,м,м,м,жо
+11,7.0,Instrumental,Plural,кота'ми,бока'лами,ку'бками,самого'нами,шле'мами,у'тками
+12,8.0,Instrumental,Singular,кото'м,бока'лом,ку'бком,самого'ном,шле'мом,"у'ткой, у'ткою"
+13,9.0,Locative,Plural,кота'х,бока'лах,ку'бках,самого'нах,шле'мах,у'тках
+14,10.0,Locative,Singular,коте',бока'ле,ку'бке,самого'не,шле'ме,у'тке
+15,11.0,Nominative,Plural,коты',бока'лы,ку'бки,самого'ны,шле'мы,у'тки
+16,12.0,Nominative,Singular,ко'т,бока'л,ку'бок,самого'н,шле'м,у'тка
