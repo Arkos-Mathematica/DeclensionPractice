@@ -20,7 +20,7 @@ def add():
     except:
         with ss.body:
             st.button("Return", on_click = reset, type="primary")
-            st.error("Could not find word in dictionary. Maybe there was a typo? Please try again")
+            st.error("Either this word is already in the word list or we could not find word in dictionary. Maybe there was a typo? Please try again or return and check the word lists.")
             st.text_input("Type word and press [ENTER] to add", placeholder = "Word to add:", label_visibility="visible", key = "word", on_change=add)
 
 def practice_gui():

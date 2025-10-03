@@ -11,7 +11,9 @@ def get_site(nom):
 def get_grammar(site):
     grammar_loc = site.find("Dictionary information")
     grammar = site[grammar_loc+24:grammar_loc+30].split(" ")[0]
-    return(grammar)
+    nom_loc = site.find("Source form: ")
+    nominative = site[nom_loc+13:nom_loc+50].split(" ")[0].split("<p>")[0]
+    return(grammar, nominative)
 
 def get_table(nom):
     url_end = str(nom.encode('windows-1251')).replace("\\x","%").upper()[2:-1]
@@ -32,21 +34,21 @@ def part_of_speech(grammar):
 
 def add_word(nom, nouns, adjectives, verbs):
     # TODO clean this line up
-    if (len(nouns) > 1 and nom in nouns.columns) or (len(adjectives) > 1 and nom in adjectives.columns) or (len(verbs) > 1 and nom in verbs.columns):
-        print("Word already in dictionary :)")
+    grammar, nominative = get_grammar(get_site(nom))
+    if (len(nouns) > 1 and nominative in nouns.columns) or (len(adjectives) > 1 and nominative in adjectives.columns) or (len(verbs) > 1 and nominative in verbs.columns):
+        raise NameError("Word already in dictionary :)")
     else:
         table = get_table(nom)
-        grammar = get_grammar(get_site(nom))
         match part_of_speech(grammar):
             case "noun":
                 table.loc[len(table)] = ["Grammar", "Gender", grammar]
-                table = table.rename(columns={"Unnamed: 0": "case", "variable": "plurality", "value": nom})
+                table = table.rename(columns={"Unnamed: 0": "case", "variable": "plurality", "value": nominative})
                 nouns = nouns.merge(table, on = ["case","plurality"], how="outer")
             case "adjective":
-                table = table.rename(columns={"Unnamed: 0": "case", "variable": "gender", "value": nom})
+                table = table.rename(columns={"Unnamed: 0": "case", "variable": "gender", "value": nominative})
                 adjectives = adjectives.merge(table, on = ["case","gender"], how="outer")
             case "verb":
-                table = table.rename(columns={"Unnamed: 0": "person", "variable": "singularity", "value": nom})
+                table = table.rename(columns={"Unnamed: 0": "person", "variable": "singularity", "value": nominative})
                 verbs = verbs.merge(table, on = ["person","singularity"], how="outer")
     return nouns, adjectives, verbs       
 
@@ -94,7 +96,10 @@ def practice(declension, nouns, adjectives):
 def upload(file, nouns, adjectives, verbs):
     with open(file, "r", encoding="utf-8") as word_doc:
         for word in word_doc:
-            nouns, adjectives, verbs = add_word(word.strip(), nouns, adjectives, verbs)
+            try:
+                nouns, adjectives, verbs = add_word(word.strip(), nouns, adjectives, verbs)
+            except NameError:
+                print("Word {word} already in dictionary :)")
     return nouns, adjectives, verbs
 
 def save(nouns, adjectives, verbs):
@@ -118,7 +123,11 @@ def menu_select(nouns, adjectives, verbs):
     match choice:
         case 1:
             word = input("what word would you like to add? ")
-            return tuple([True]) + add_word(word.lower(), nouns, adjectives, verbs) 
+            try:
+                return tuple([True]) + add_word(word.lower(), nouns, adjectives, verbs) 
+            except NameError:
+                print("Word already in dictionary :)")
+                return (True, nouns, adjectives, verbs)
         case 2: 
             view_words(nouns, adjectives, verbs)
             return (True, nouns, adjectives, verbs)
